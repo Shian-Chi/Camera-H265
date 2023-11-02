@@ -1,9 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-#sudo apt-get update
-#sudo apt-get install libgstrtspserver-1.0-0
-
-
 import gi
 gi.require_version('Gst', '1.0')
 gi.require_version('GstRtspServer','1.0')
@@ -18,12 +14,12 @@ server.set_service('12345')
 # 创建GstRTSPMediaFactory
 factory = GstRtspServer.RTSPMediaFactory()
 
+factory.set_launch("nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),width=720,height=480,framerate=25/1 ! nvvidconv ! nvv4l2h265enc ! h265parse ! rtph265pay name=pay0 pt=96")
 # 開啓 CSI 鏡頭
-factory.set_launch("nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),width=1280,height=720,framerate=30/1 ! nvvidconv ! nvv4l2h265enc ! h265parse ! rtph265pay name=pay0 pt=96")
 
-# 開啓 USB 鏡頭
 
 #factory.set_launch("v4l2src device=/dev/video1 ! image/jpeg,width=1280,height=720,framerate=30/1 ! jpegdec ! nvvidconv ! nvv4l2h265enc ! h265parse ! rtph265pay name=pay0 pt=96")
+# 開啓 USB 鏡頭
 
 factory.set_shared(True)
 
