@@ -10,7 +10,7 @@ Gst.init(None)
 
 # 创建GstRtspServer服务器
 server = GstRtspServer.RTSPServer()
-server.set_service('12345')
+server.set_service('8080')
 # 创建GstRTSPMediaFactory
 factory = GstRtspServer.RTSPMediaFactory()
 
