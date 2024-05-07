@@ -20,7 +20,7 @@ def get_local_ip():
 
 
 port = '8080'
-factory = '/test'
+factoryName = '/test'
 host = get_local_ip()
 
 # 初始化GStreamer
@@ -38,12 +38,12 @@ factory.set_launch("v4l2src device=/dev/video1 ! image/jpeg,width=1280,height=72
 factory.set_shared(True)
 
 # 设置RTSP媒体工厂的挂载点路径
-server.get_mount_points().add_factory("/test", factory)
+server.get_mount_points().add_factory(factoryName, factory)
 
 # 启动服务器
 server.attach(None)
 
-print(f"RTSP server is ready at rtsp://{host}:{port}{factory}")
+print(f"RTSP server is ready at rtsp://{host}:{port}{factoryName}")
 
 # 设置GLib主循环，以处理GStreamer事件
 main_loop = GLib.MainLoop()
