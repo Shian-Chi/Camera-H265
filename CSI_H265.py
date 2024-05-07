@@ -4,6 +4,24 @@ import gi
 gi.require_version('Gst', '1.0')
 gi.require_version('GstRtspServer','1.0')
 from gi.repository import Gst, GLib, GstRtspServer
+import socket
+
+
+def get_local_ip():
+    # 建立一個臨時的 socket 連接以確定本地 IP
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+        # 使用一個不存在的地址 8.8.8.8 進行嘗試連接
+        try:
+            s.connect(('8.8.8.8', 1))
+            IP = s.getsockname()[0]
+        except Exception:
+            IP = '127.0.0.1'
+    return IP
+
+
+port = '8080'
+factory = '/test'
+host = get_local_ip()
 
 # 初始化GStreamer
 Gst.init(None)
@@ -25,7 +43,7 @@ server.get_mount_points().add_factory("/test", factory)
 # 启动服务器
 server.attach(None)
 
-print("RTSP server is ready at rtsp://host:8080/test")
+print(f"RTSP server is ready at rtsp://{host}:{port}{factory}")
 
 # 设置GLib主循环，以处理GStreamer事件
 main_loop = GLib.MainLoop()
