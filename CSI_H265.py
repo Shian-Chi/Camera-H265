@@ -20,7 +20,7 @@ def get_local_ip():
 
 
 port = '8080'
-factory = '/test'
+factoryName = '/test'
 host = get_local_ip()
 
 # 初始化GStreamer
@@ -42,7 +42,7 @@ factory.set_launch("nvarguscamerasrc sensor-id=0 ! video/x-raw(memory:NVMM),widt
 factory.set_shared(True)
 
 # 设置RTSP媒体工厂的挂载点路径
-server.get_mount_points().add_factory(factory, factory)
+server.get_mount_points().add_factory(factoryName, factory)
 
 # 启动服务器
 server.attach(None)
