@@ -47,7 +47,7 @@ server.get_mount_points().add_factory(factoryName, factory)
 # 启动服务器
 server.attach(None)
 
-print(f"RTSP server is ready at rtsp://{host}:{port}{factory}")
+print(f"RTSP server is ready at rtsp://{host}:{port}{factoryName}")
 
 # 设置GLib主循环，以处理GStreamer事件
 main_loop = GLib.MainLoop()
