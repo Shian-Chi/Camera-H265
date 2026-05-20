@@ -1,7 +1,7 @@
-# CSI-Camera-H26
+# CSI-Camera-H.265
 
-Use MIPI-CSI camera read image use H.265 transmission
-
+Use MIPI-CSI camera read image use H.265 transmission in Nvidia Jetson
+1
 # Installation
 ```shell
 sudo apt-get update
