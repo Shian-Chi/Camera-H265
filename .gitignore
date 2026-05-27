@@ -1,0 +1,7 @@
+*.mp4
+*.avi
+*.mkv
+
+
+rtsp_server
+root/
