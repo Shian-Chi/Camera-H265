@@ -8,7 +8,7 @@
 
 RTSP streaming and recording tools for **NVIDIA Jetson** boards (Nano / Xavier / Orin) using a MIPI-CSI camera and Jetson hardware H.265 encoding (`nvv4l2h265enc`). A USB webcam alternative (`USB_H265.py`) is also included for non-Jetson devices.
 
-Stream URL: `rtsp://<device-ip>:8080/test`
+Stream URL: `rtsp://<device-ip>:8554/test`
 
 ---
 
@@ -143,7 +143,7 @@ rtspsrc → rtph265depay → h265parse → nvv4l2decoder → nvvidconv → video
 
 針對 **NVIDIA Jetson**（Nano / Xavier / Orin）開發板的 RTSP 串流與錄影工具組，使用 MIPI-CSI 攝影機與 Jetson 硬體 H.265 編碼（`nvv4l2h265enc`）。另附 `USB_H265.py` 供無 Jetson 硬體的設備使用。
 
-串流網址：`rtsp://<裝置 IP>:8080/test`
+串流網址：`rtsp://<裝置 IP>:8554/test`
 
 ---
 
